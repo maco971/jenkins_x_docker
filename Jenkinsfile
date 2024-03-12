@@ -1,21 +1,31 @@
 pipeline {
     agent any
     
+    tools {
+        // Define the JDK tool named "Java11" using AdoptOpenJDK 11
+        jdk 'Java11'
+        // Define the Maven tool named "Maven_3.9.6" using Maven 3.9.6
+        maven 'Maven_3.9.6'
+    }
+
     stages {
         stage('Build') {
             steps {
-                script {
-                    docker.build('node-app:v1')
-                }
+                // Checkout the source code from your GitHub repository
+                git 'https://github.com/your-username/your-repo.git'
+                
+                // Run Maven to build the project
+                sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run your tests here
             }
         }
         stage('Deploy') {
             steps {
-                script {
-                    docker.withRegistry('https://your-docker-registry.com', 'docker-credentials-id') {
-                        docker.image('node-app:v1').push('latest')
-                    }
-                }
+                // Deploy your application
             }
         }
     }
