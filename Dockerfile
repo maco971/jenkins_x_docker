@@ -1,21 +1,20 @@
-# Utilisez l'image officielle Node.js v14.21.3 comme base
+# Use an official Node runtime as a parent image with the specified version
 FROM node:14.21.3
 
-# Définissez le répertoire de travail dans le conteneur
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copiez les fichiers package.json et package-lock.json dans le répertoire de travail
-COPY package*.json ./
-
-# Installez les dépendances de l'application
-RUN npm install
-
-# Copiez le reste du code de l'application dans le répertoire de travail
+# Copy the current directory contents into the container at /usr/src/app
 COPY . .
 
-# Exposez le port sur lequel l'application s'exécute
+# Install any needed packages specified in package.json
+RUN npm install
+
+# Make port 3000 available to the world outside this container
 EXPOSE 3000
 
-# Commande pour démarrer l'application
-CMD ["npm", "start"]
+# Define environment variable
+ENV NAME World
 
+# Run index.js when the container launches
+CMD ["node", "index.js"]
