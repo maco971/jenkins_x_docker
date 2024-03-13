@@ -3,9 +3,9 @@ pipeline {
     
     tools {
         // Define the JDK tool named "Java11" using AdoptOpenJDK 11
-        jdk 'Java11'
+        jdk 'java2'
         // Define the Maven tool named "Maven_3.9.6" using Maven 3.9.6
-        maven 'Maven_3.9.6'
+        maven 'Maven'
     }
 
     stages {
