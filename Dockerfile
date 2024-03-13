@@ -1,20 +1,21 @@
-# Use the official Node.js 14 image as a base
+# Utilisez l'image officielle Node.js v14.21.3 comme base
 FROM node:14.21.3
 
-# Set the working directory in the container
+# Définissez le répertoire de travail dans le conteneur
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the working directory
+# Copiez les fichiers package.json et package-lock.json dans le répertoire de travail
 COPY package*.json ./
 
-# Install app dependencies
+# Installez les dépendances de l'application
 RUN npm install
 
-# Copy the rest of the application code
+# Copiez le reste du code de l'application dans le répertoire de travail
 COPY . .
 
-# Expose the port the app runs on
+# Exposez le port sur lequel l'application s'exécute
 EXPOSE 3000
 
-# Command to run the app
-CMD ["node", "index.js"]
+# Commande pour démarrer l'application
+CMD ["npm", "start"]
+
