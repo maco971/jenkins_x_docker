@@ -1,5 +1,12 @@
 pipeline {
-    agent any
+    agent{
+        docker{
+            image "node:14.21.3"
+            image "maven:3.9.6-amazoncorretto-21"
+        }
+        
+        
+    }
     
     tools {
         // Assurez-vous que ces outils sont configurés avec ces noms dans Jenkins
