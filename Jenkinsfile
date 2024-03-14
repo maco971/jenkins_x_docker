@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image 'node14.21.3' }
+    docker { image 'node:14.21.3' }
   }
     tools {
         // Use JDK and Maven defined in Jenkins Global Tool Configuration
