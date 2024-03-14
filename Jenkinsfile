@@ -10,10 +10,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Building Docker image
-                script {
-                    docker.build('my-node-app')
-                }
+                echo "test"
+                
             }
         }
         stage('Test') {
