@@ -10,8 +10,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "test"
-                
+                sh '''
+                  node --version
+                  git --version
+                  curl --version
+                '''
             }
         }
         stage('Test') {
