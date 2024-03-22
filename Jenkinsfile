@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    any
+    labels 'master'
   }
     tools {
         // Use JDK and Maven defined in Jenkins Global Tool Configuration
