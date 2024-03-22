@@ -6,6 +6,7 @@ pipeline {
         // Use JDK and Maven defined in Jenkins Global Tool Configuration
         jdk 'java2'
         maven 'mvn3.9.6'
+        nodejs 'nvm14.21.3'
     }
 
     stages {
